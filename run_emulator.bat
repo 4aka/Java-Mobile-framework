@@ -1,0 +1,1 @@
+START "E:\Projects\Android\Sdk\emulator\emulator.exe" -avd Samsung_S21_API_34
