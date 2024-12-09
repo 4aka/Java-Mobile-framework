@@ -50,4 +50,9 @@ public class InitDriver {
         service.stop();
     }
 
+    public static void runEmulator() {
+        // TODO add emulator running
+        // "E:\Projects\Android\Sdk\emulator\emulator.exe" -avd Samsung_S21_API_34
+    }
+
 }
