@@ -1,16 +1,12 @@
-import framework.Assertions;
-import io.appium.java_client.AppiumBy;
+import enums.SingleChoiceList;
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.AlertDialogPage;
 
-import static framework.Assertions.*;
-import static framework.InitDriver.getDriver;
-import static framework.Waiters.*;
+import static framework.Assertions.isElementDisplayedSoft;
+import static framework.Waiters.waitUntilVisible;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
@@ -28,8 +24,8 @@ public class AlertDialogsTest extends BaseTest {
     @Test
     public void getAlertMessage() {
         page.openOkCancelDialogWithMessage();
-        waitUntilVisible(page.dialog_window_message);
-        String message = page.dialog_window_message.getText();
+        waitUntilVisible(page.alert_title);
+        String message = page.alert_title.getText();
 
         assertThat(message, equalTo(page.okCancelDialogWithMessageText));
     }
@@ -37,7 +33,7 @@ public class AlertDialogsTest extends BaseTest {
     @Test
     public void closeDialogWindowByOk() {
         page.openOkCancelDialogWithMessage();
-        waitUntilVisible(page.dialog_window_message);
+        waitUntilVisible(page.alert_title);
         page.dialog_window_Ok_button.click();
 
         assertFalse(isElementDisplayedSoft(page.alert_title));
@@ -46,7 +42,7 @@ public class AlertDialogsTest extends BaseTest {
     @Test
     public void closeDialogWindowByCancel() {
         page.openOkCancelDialogWithMessage();
-        waitUntilVisible(page.dialog_window_message);
+        waitUntilVisible(page.alert_title);
         page.dialog_window_cancel_button.click();
 
         assertFalse(isElementDisplayedSoft(page.alert_title));
@@ -55,9 +51,9 @@ public class AlertDialogsTest extends BaseTest {
     @Test
     public void getListDialogWindow() {
         page.list_dialogue_button.click();
-        waitUntilVisible(page.list_dialogue_title);
+        waitUntilVisible(page.alert_title);
 
-        assertTrue(page.list_dialogue_title.isDisplayed());
+        assertTrue(page.alert_title.isDisplayed());
     }
 
     @Test
@@ -65,40 +61,22 @@ public class AlertDialogsTest extends BaseTest {
         final int elementNumber = 2;
 
         page.list_dialogue_button.click();
-        waitUntilVisible(page.list_dialogue_title);
+        waitUntilVisible(page.alert_title);
         page.selectItem(elementNumber);
-
         String message = page.list_dialogue_message.getText();
-        System.err.println(page.getListDialogueMessage(elementNumber));
 
         assertThat(message, equalTo(page.getListDialogueMessage(elementNumber)));
     }
 
     @Test
     public void getSingleChoiceListWindow() {
-        WebElement singleChoiceList = getDriver().findElement(AppiumBy.accessibilityId("Single choice list"));
-        singleChoiceList.click();
+        page.single_choice_list.click();
+        waitUntilVisible(page.alert_title);
+        assertTrue(page.alert_title.isDisplayed());
+        page.chooseElementSingleChoiceList(SingleChoiceList.MAP);
+        page.dialog_window_Ok_button.click();
 
-        WebElement singleChoiceListTitle = getDriver().findElement(AppiumBy.id("android:id/alertTitle"));
-
-        assertTrue(singleChoiceListTitle.isDisplayed());
-        getDriver().navigate().back();
-    }
-
-    @Test
-    public void closeSingleChoiceList() {
-        WebElement singleChoiceList = getDriver().findElement(AppiumBy.accessibilityId("Single choice list"));
-        singleChoiceList.click();
-
-        WebElement secondValue = getDriver().findElement(AppiumBy.xpath("//android.widget.CheckedTextView[@index='1']"));
-        secondValue.click();
-
-        WebElement okButton = getDriver().findElement(AppiumBy.id("android:id/button1"));
-        okButton.click();
-
-        WebElement alertDialogsScreenTitle = getDriver().findElement(AppiumBy.className("android.widget.TextView"));
-
-        assertTrue(alertDialogsScreenTitle.isDisplayed());
+        assertFalse(isElementDisplayedSoft(page.alert_title));
     }
 
 }
