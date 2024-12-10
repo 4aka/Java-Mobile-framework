@@ -11,12 +11,6 @@ import static framework.InitDriver.getDriver;
 
 public class AlertDialogPage extends BasePage {
 
-    @AndroidFindBy(accessibility = "App")
-    public WebElement app_button;
-
-    @AndroidFindBy(accessibility = "Alert Dialogs")
-    public WebElement alert_dialogue;
-
     @AndroidFindBy(accessibility = "OK Cancel dialog with a message")
     public WebElement ok_cancel_dialog_with_message;
 
@@ -39,16 +33,9 @@ public class AlertDialogPage extends BasePage {
     public WebElement single_choice_list;
 
 
-
     final public String okCancelDialogWithMessageText =
             "Lorem ipsum dolor sit aie consectetur adipiscing\n" +
                     "Plloaso mako nuto siwuf cakso dodtos anr koop.";
-
-
-    public void openDialogs() {
-        app_button.click();
-        alert_dialogue.click();
-    }
 
     public void openOkCancelDialogWithMessage() {
         ok_cancel_dialog_with_message.click();
