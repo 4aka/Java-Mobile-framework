@@ -3,9 +3,10 @@ import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.AlertDialogPage;
+import pages.AppTabs;
 
-import static framework.Assertions.isElementDisplayedSoft;
-import static framework.Waiters.waitUntilVisible;
+import static keywords.Assertions.isElementDisplayedSoft;
+import static keywords.Waiters.waitUntilVisible;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.testng.Assert.assertFalse;
@@ -18,7 +19,7 @@ public class AlertDialogsTest extends BaseTest {
 
     @BeforeTest
     public void setUp() {
-        new AlertDialogPage().openDialogs();
+        new AppTabs().openDialogs();
     }
 
     @Test
