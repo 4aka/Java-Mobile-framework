@@ -1,5 +1,6 @@
-package framework;
+package keywords;
 
+import framework.Config;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
