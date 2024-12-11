@@ -3,7 +3,6 @@ import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.AlertDialogPage;
-import pages.AppTabs;
 
 import static keywords.Assertions.isElementDisplayedSoft;
 import static keywords.Waiters.waitUntilVisible;
@@ -19,7 +18,7 @@ public class AlertDialogsTest extends BaseTest {
 
     @BeforeTest
     public void setUp() {
-        new AppTabs().openDialogs();
+        tab.openDialogs();
     }
 
     @Test

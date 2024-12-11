@@ -17,15 +17,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.testng.Assert.assertTrue;
 
-public class TextClockTest {
+public class TextClockTest extends BaseTest{
 
     private final ViewsPage page = new ViewsPage();
 
     @BeforeClass
     public void setup() {
-        new AppTabs().openViews();
-        WebElement textClock = Actions.scrollToElement(ViewTabs.TEXT_CLOCK.getTab());
-        textClock.click();
+        tab.openViews();
+        page.openTextClock();
     }
 
     @Test
