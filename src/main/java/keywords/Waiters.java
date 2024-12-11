@@ -15,9 +15,6 @@ import static framework.InitDriver.getDriver;
 @Log4j2
 public class Waiters {
 
-    private static final String logPMessage = "Element is displayed";
-    private static final String logNMessage = "Element is NOT displayed";
-
     public static boolean waitUntilVisible(WebElement element) {
         try {
             new FluentWait<>(getDriver())
@@ -26,11 +23,22 @@ public class Waiters {
                     .ignoring(NoSuchElementException.class)
                     .until(ExpectedConditions.visibilityOf(element));
         } catch (TimeoutException e) {
-            log.info(logNMessage);
             return false;
         }
-        log.info(logPMessage);
         return true;
+    }
+
+    public static WebElement waitUntilVisibleElement(WebElement element) {
+        try {
+            new FluentWait<>(getDriver())
+                    .withTimeout(Duration.ofSeconds(Config.timeout))
+                    .pollingEvery(Duration.ofMillis(100))
+                    .ignoring(NoSuchElementException.class)
+                    .until(ExpectedConditions.visibilityOf(element));
+        } catch (TimeoutException e) {
+            return element;
+        }
+        return element;
     }
 
     public static boolean waitUntilVisible(WebElement element, int timeout) {
@@ -42,10 +50,8 @@ public class Waiters {
                     .ignoring(NoSuchElementException.class)
                     .until(ExpectedConditions.visibilityOf(element));
         } catch (TimeoutException e) {
-            log.info(logNMessage);
             return false;
         }
-        log.info(logPMessage);
         return true;
     }
 
@@ -58,10 +64,8 @@ public class Waiters {
                     .ignoring(NoSuchElementException.class)
                     .until(ExpectedConditions.elementToBeClickable(element));
         } catch (TimeoutException e) {
-            log.info("Element is not clickable");
             return false;
         }
-        log.info("Element is clickable");
         return true;
     }
 
