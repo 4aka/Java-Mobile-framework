@@ -4,7 +4,8 @@ public enum ViewTabs {
 
     TEXT_CLOCK("TextClock"),
     TABS("Tabs"),
-    RADIO_GROUP("Radio Group");
+    RADIO_GROUP("Radio Group"),
+    POPUP_MENU("Popup Menu");
 
     private final String tab;
 
