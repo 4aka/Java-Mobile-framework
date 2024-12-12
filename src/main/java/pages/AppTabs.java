@@ -2,7 +2,6 @@ package pages;
 
 import enums.ViewTabs;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import keywords.Actions;
 import org.openqa.selenium.WebElement;
 
 import static keywords.Actions.*;
@@ -21,6 +20,9 @@ public class AppTabs extends BasePage{
     @AndroidFindBy(accessibility = "Tabs")
     public WebElement tabs;
 
+    @AndroidFindBy(accessibility = "Radio Group")
+    public WebElement radio_group;
+
     public void openDialogs() {
         app_button.click();
         alert_dialogue.click();
@@ -33,5 +35,11 @@ public class AppTabs extends BasePage{
     public void openTabs() {
         scrollToElement(ViewTabs.TABS.getTab());
         tabs.click();
+    }
+
+    public void openRadioGroup() {
+        openViews();
+        scrollToElement(ViewTabs.RADIO_GROUP.getTab());
+        radio_group.click();
     }
 }
