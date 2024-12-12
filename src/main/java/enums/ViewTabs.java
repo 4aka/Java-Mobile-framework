@@ -3,7 +3,8 @@ package enums;
 public enum ViewTabs {
 
     TEXT_CLOCK("TextClock"),
-    TABS("Tabs");
+    TABS("Tabs"),
+    RADIO_GROUP("Radio Group");
 
     private final String tab;
 
