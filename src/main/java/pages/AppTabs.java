@@ -23,6 +23,10 @@ public class AppTabs extends BasePage{
     @AndroidFindBy(accessibility = "Radio Group")
     public WebElement radio_group;
 
+    @AndroidFindBy(accessibility = "Popup Menu")
+    public WebElement popup_menu;
+
+
     public void openDialogs() {
         app_button.click();
         alert_dialogue.click();
@@ -41,5 +45,11 @@ public class AppTabs extends BasePage{
         openViews();
         scrollToElement(ViewTabs.RADIO_GROUP.getTab());
         radio_group.click();
+    }
+
+    public void openPopupMenu() {
+        openViews();
+        scrollToElement(ViewTabs.POPUP_MENU.getTab());
+        popup_menu.click();
     }
 }
