@@ -4,6 +4,10 @@
     <test name="Search">
         <classes>
             <class name="AlertDialogsTest"/>
+            <class name="PopupMenuTest"/>
+            <class name="RadioGroupTest"/>
+            <class name="TextClockTest"/>
+            <class name="TabsTest"/>
         </classes>
     </test>
 </suite>
