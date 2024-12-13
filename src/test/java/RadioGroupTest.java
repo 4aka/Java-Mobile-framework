@@ -1,4 +1,6 @@
 import org.testng.annotations.*;
+import pages.AppTabs;
+import pages.PopupMenuPage;
 import pages.RadioGroupPage;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -6,10 +8,14 @@ import static org.testng.Assert.*;
 
 public class RadioGroupTest extends BaseTest {
 
-    RadioGroupPage page = new RadioGroupPage();
+    private AppTabs tab;
+    private RadioGroupPage page;
 
-    @BeforeClass
+    @BeforeMethod
     public void setup() {
+        tab = new AppTabs();
+        page = new RadioGroupPage();
+
         tab.openRadioGroup();
     }
 

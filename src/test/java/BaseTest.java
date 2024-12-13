@@ -1,31 +1,22 @@
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import pages.AppTabs;
+
+import static framework.InitDriver.driverQuit;
+import static framework.InitDriver.getDriver;
 
 
 public class BaseTest {
 
-    public AppTabs tab = new AppTabs();
-
-    @BeforeClass
-    public void beforeClass() {
-
+    @BeforeMethod
+    public void beforeMethod() {
     }
 
-    @BeforeTest
-    public void beforeTest() {
-
+    @AfterMethod
+    public void afterMethod() {
+        driverQuit();
     }
 
-    @AfterTest
-    public void afterTest() {
-
-    }
-
-    @AfterClass
-    public void afterClass() {
-
-    }
 }

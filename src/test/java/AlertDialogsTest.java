@@ -1,8 +1,11 @@
 import enums.SingleChoiceList;
 import lombok.extern.log4j.Log4j2;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.AlertDialogPage;
+import pages.AppTabs;
+import pages.TabsPage;
 
 import static keywords.Assertions.isElementDisplayedSoft;
 import static keywords.Waiters.waitUntilVisible;
@@ -14,10 +17,14 @@ import static org.testng.Assert.assertTrue;
 @Log4j2
 public class AlertDialogsTest extends BaseTest {
 
-    private final AlertDialogPage page = new AlertDialogPage();
+    private AppTabs tab;
+    private AlertDialogPage page;
 
-    @BeforeTest
-    public void setUp() {
+    @BeforeMethod
+    public void setup() {
+        tab = new AppTabs();
+        page = new AlertDialogPage();
+
         tab.openDialogs();
     }
 

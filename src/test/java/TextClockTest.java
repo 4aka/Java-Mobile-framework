@@ -1,14 +1,9 @@
-import enums.ViewTabs;
-import keywords.Actions;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.AppTabs;
 import pages.ViewsPage;
 
-import java.text.Format;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import static framework.InitDriver.getDriver;
@@ -19,10 +14,14 @@ import static org.testng.Assert.assertTrue;
 
 public class TextClockTest extends BaseTest{
 
-    private final ViewsPage page = new ViewsPage();
+    private AppTabs tab;
+    private ViewsPage page;
 
-    @BeforeClass
+    @BeforeMethod
     public void setup() {
+        tab = new AppTabs();
+        page = new ViewsPage();
+
         tab.openViews();
         page.openTextClock();
     }

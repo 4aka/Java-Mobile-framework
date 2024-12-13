@@ -1,7 +1,7 @@
 import org.testng.annotations.*;
+import pages.AppTabs;
 import pages.TabsPage;
 
-import static keywords.Waiters.waitUntilVisible;
 import static keywords.Waiters.waitUntilVisibleElement;
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -9,10 +9,14 @@ import static org.testng.Assert.*;
 
 public class TabsTest extends BaseTest {
 
-    TabsPage page = new TabsPage();
+    private AppTabs tab;
+    private TabsPage page;
 
-    @BeforeClass
+    @BeforeMethod
     public void setup() {
+        tab = new AppTabs();
+        page = new TabsPage();
+
         tab.openViews();
         tab.openTabs();
     }

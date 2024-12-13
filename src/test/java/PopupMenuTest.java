@@ -1,5 +1,7 @@
 import org.testng.annotations.*;
+import pages.AppTabs;
 import pages.PopupMenuPage;
+import pages.TabsPage;
 
 import static org.hamcrest.MatcherAssert.*;
 import static org.hamcrest.Matchers.*;
@@ -7,10 +9,14 @@ import static org.testng.Assert.*;
 
 public class PopupMenuTest extends BaseTest{
 
-    PopupMenuPage page = new PopupMenuPage();
+    private AppTabs tab;
+    private PopupMenuPage page;
 
-    @BeforeClass
+    @BeforeMethod
     public void setup() {
+        tab = new AppTabs();
+        page = new PopupMenuPage();
+
         tab.openPopupMenu();
     }
 
