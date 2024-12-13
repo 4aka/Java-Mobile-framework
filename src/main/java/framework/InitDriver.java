@@ -26,15 +26,20 @@ public class InitDriver {
     }
 
     public static AndroidDriver getDriver() {
-
         if (driver == null) {
             try {
                 setupDriver();
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             }
+            return driver;
         }
         return driver;
+    }
+
+    public static void driverQuit() {
+        driver.quit();
+        driver = null;
     }
 
     public static void startAppium(){
