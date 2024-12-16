@@ -1,12 +1,10 @@
 package pages;
 
-import enums.ViewTabs;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import keywords.Actions;
 import org.openqa.selenium.WebElement;
 
 import static enums.ViewTabs.*;
-import static keywords.Actions.*;
+import static keywords.AppActions.*;
 
 public class ViewsPage extends BasePage{
 

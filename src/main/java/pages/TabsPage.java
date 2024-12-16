@@ -1,7 +1,7 @@
 package pages;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import keywords.Actions;
+import keywords.AppActions;
 import org.openqa.selenium.WebElement;
 
 public class TabsPage extends BasePage{
@@ -31,7 +31,7 @@ public class TabsPage extends BasePage{
     public WebElement image_view;
 
     public void clickNewPhotoByCoordinates() {
-        Actions.clickByCoordinates(150, 625);
+        AppActions.clickByCoordinates(150, 625);
     }
 
 }
