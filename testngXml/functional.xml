@@ -8,6 +8,11 @@
             <class name="RadioGroupTest"/>
             <class name="TextClockTest"/>
             <class name="TabsTest"/>
+            <class name="ContextMenuTest"/>
+            <class name="DateWidgetsTest"/>
+            <class name="HideAndShowTest"/>
+            <class name="InflateFromXmlTest"/>
+            <class name="PickerTest"/>
         </classes>
     </test>
 </suite>
