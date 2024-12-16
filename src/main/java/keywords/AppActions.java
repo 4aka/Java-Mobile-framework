@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import static framework.InitDriver.getDriver;
 
-public class Actions {
+public class AppActions {
 
     public static WebElement scrollToElement(String text) {
         return getDriver().findElement(AppiumBy.androidUIAutomator(
@@ -37,5 +37,16 @@ public class Actions {
         getDriver().manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
     }
 
+    public static void longClick(WebElement e) {
+        new org.openqa.selenium.interactions.Actions(getDriver()).clickAndHold(e).perform();
+    }
+
+    public static void hideKeyboard() {
+        getDriver().hideKeyboard();
+    }
+
+    public static String getPageSource() {
+        return getDriver().getPageSource();
+    }
 
 }
